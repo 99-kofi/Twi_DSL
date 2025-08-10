@@ -102,7 +102,8 @@ def execute_python(py_code: str) -> dict:
     try:
         with contextlib.redirect_stdout(out_buf):
             # execute in a restricted globals dict (still not fully secure)
-            exec(py_code, {"__builtins__": {}}, {})
+            exec(py_code, {"__builtins__": __builtins__}, {})
+
     except Exception as e:
         err_buf.write(str(e))
     return {"stdout": out_buf.getvalue(), "stderr": err_buf.getvalue()}

@@ -13,7 +13,5 @@
 - For Streamlit Cloud: point to `frontend/app.py`
 - For Render: use `Procfile` above and `requirements.txt`.
 
-## Security
-This is a prototype. Do **not** execute untrusted code in a shared production environment. Replace in-process execution with an isolated runner for production.
 
 

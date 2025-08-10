@@ -1,13 +1,19 @@
-# Twi DSL API
+# Twi DSL Playground (Backend + Frontend)
 
-## Overview
-A FastAPI-based service that translates Twi DSL to Python and executes it safely.
+## Layout
+- `backend/` — FastAPI service that translates & executes Twi DSL
+- `frontend/` — Streamlit UI with custom Twi DSL syntax highlighting
 
-## Endpoints
-- `POST /api/translate` → Returns Python code from Twi DSL input.
-- `POST /api/execute` → Executes translated code in a sandbox.
+## Deploy Backend (Render)
+- Point Render to `backend/` folder (or use separate repo)
+- Build command: `pip install -r requirements.txt`
+- Start: `uvicorn main:app --host 0.0.0.0 --port $PORT`
 
-## Local Development
-```bash
-pip install -r requirements.txt
-uvicorn app:app --reload
+## Deploy Frontend (Streamlit Cloud or Render)
+- For Streamlit Cloud: point to `frontend/app.py`
+- For Render: use `Procfile` above and `requirements.txt`.
+
+## Security
+This is a prototype. Do **not** execute untrusted code in a shared production environment. Replace in-process execution with an isolated runner for production.
+
+
